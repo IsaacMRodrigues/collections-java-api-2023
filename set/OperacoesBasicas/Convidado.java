@@ -1,13 +1,15 @@
 package OperacoesBasicas;
 
+import java.util.Objects;
+
 public class Convidado {
 	
 	private String nome;
-	private int condigoConvite;
+	private int codigoConvite;
 	
-	public Convidado(String nome, int condigoConvite) {
+	public Convidado(String nome, int codigoConvite) {
 		this.nome = nome;
-		this.condigoConvite = condigoConvite;
+		this.codigoConvite = codigoConvite;
 	}
 
 	public String getNome() {
@@ -18,17 +20,34 @@ public class Convidado {
 		this.nome = nome;
 	}
 
-	public int getCondigoConvite() {
-		return condigoConvite;
+	public int getcodigoConvite() {
+		return codigoConvite;
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigoConvite);
 	}
 
-	public void setCondigoConvite(int condigoConvite) {
-		this.condigoConvite = condigoConvite;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Convidado other = (Convidado) obj;
+		return codigoConvite == other.codigoConvite;
+	}
+
+	public void setcodigoConvite(int codigoConvite) {
+		this.codigoConvite = codigoConvite;
 	}
 
 	@Override
 	public String toString() {
-		return "Convidado [nome=" + nome + ", condigoConvite=" + condigoConvite + "]";
+		return "Convidado [nome=" + nome + ", codigoConvite=" + codigoConvite + "]";
 	}
 	
 	
